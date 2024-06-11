@@ -46,7 +46,8 @@ FROM
 	(SELECT 
 	term,id,conceptid 
 	FROM descriptions_snapshot AS ds
-	WHERE active=1) AS desc_active,
+	WHERE active=1 AND typeid = 900000000000013009 -- Synonym
+	) AS desc_active,
 	
     	(SELECT 
 	referencedComponentId 
