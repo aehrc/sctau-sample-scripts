@@ -80,9 +80,9 @@ JOIN (SELECT sourceId
 		) AS ffd
 		ON c.id=ffd.sourceid
 JOIN descriptions_snapshot AS d
-	   ON c.id=d.conceptid
+	   ON c.id=d.conceptid AND d.typeid = 900000000000013009 -- Synonym
 JOIN language_refset_snapshot AS adrs
-		ON d.id=adrs.referencedComponentId
+		ON d.id=adrs.referencedComponentId AND adrs.refsetId = 32570271000036106  -- Australian dialect refset
 WHERE adrs.acceptabilityid = 900000000000548007 -- ID of Preferred Term
 AND c.active=1
 AND d.active=1
