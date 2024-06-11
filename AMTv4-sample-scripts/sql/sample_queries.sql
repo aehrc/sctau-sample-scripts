@@ -137,6 +137,8 @@ WHERE
 c.id=pd.sourceid
 AND c.id=d.conceptid
 AND d.id=adrs.referencedComponentId
+AND d.typeid = 900000000000013009 -- Synonym
+AND adrs.refsetId = 32570271000036106  -- Australian dialect refset
 AND adrs.acceptabilityid=900000000000548007 -- ID of Preferred Term
 AND c.active=1
 AND d.active=1
