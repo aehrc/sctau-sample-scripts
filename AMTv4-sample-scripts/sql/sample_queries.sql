@@ -22,14 +22,18 @@ FROM
 	refset_snapshot AS rs,
 	descriptions_snapshot AS d,
 	language_refset_snapshot AS adrs
+	
 WHERE c.id=rs.referencedComponentId
 AND c.id=d.conceptid
 AND d.id=adrs.referencedComponentId
-AND adrs.acceptabilityid=900000000000548007 -- ID of Preferred Term
 AND rs.refsetid= 11000036103 -- ID of Adverse reaction type refset
+AND d.typeid = 900000000000013009 -- Synonym
+AND adrs.refsetid = 32570271000036106 -- ADRS
+AND adrs.acceptabilityid=900000000000548007 -- ID of Preferred Term
 AND c.active=1
 AND d.active=1
 AND rs.active=1
+AND ADRS.active = 1
 ORDER BY preferred_term;
 
 -- 4. List of Australian reference sets & member count 
