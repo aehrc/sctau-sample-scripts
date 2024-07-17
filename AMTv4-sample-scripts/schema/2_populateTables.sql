@@ -39,6 +39,10 @@ LOAD DATA LOCAL INFILE '<release-files>/Snapshot/Terminology/xsct2_RelationshipC
 (id, @effectivetime, active, moduleid, sourceid, value, relationshipgroup, typeid, characteristictypeid, modifierid) 
 set effectivetime = str_to_date(@effectivetime, '%Y%m%d');
 
+-- Remove the # character from the value field (Description logic artefact)
+UPDATE relationships_concrete_values_snapshot
+SET value = REPLACE(value, '#', '');
+
 -- RF2_LANGUAGE_REFSET_SNAPSHOT
 TRUNCATE TABLE language_refset_snapshot;
 
